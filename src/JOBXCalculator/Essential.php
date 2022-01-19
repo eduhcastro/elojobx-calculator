@@ -1,34 +1,34 @@
 <?php
+
 namespace JOBXCalculator\JOBXCalculator;
 
 class Essential
 {
-    
+
     protected const DIVISIONS_THEAMOUNT = 4;
     public const DEFAULT_JOBX_ELO = [
-            array("elo" => "ferro",      "value" => 28,    "parcelado" => 7,   "prazo" => 1),
-            array("elo" => "bronze",     "value" => 32,    "parcelado" => 8,   "prazo" => 1),
-            array("elo" => "prata",      "value" => 48,    "parcelado" => 12,  "prazo" => 1),
-            array("elo" => "ouro",       "value" => 60,    "parcelado" => 15,  "prazo" => 1),
-            array("elo" => "platina",    "value" => 80,    "parcelado" => 20,  "prazo" => 1),
-            array("elo" => "diamante",   "value" => 200,   "parcelado" => 50,  "prazo" => 2),
-            array("elo" => "mestre",     "value" => 160,   "parcelado" => 0,   "prazo" => 4),
-            array("elo" => "grao-mestre","value" => 900,   "parcelado" => 0,   "prazo" => 7),
-            array("elo" => "desafiante", "value" => 2000,  "parcelado" => 0,   "prazo" => 15)
-          ];
+        array("elo" => "ferro",      "value" => 28,    "parcelado" => 7,   "prazo" => 1),
+        array("elo" => "bronze",     "value" => 32,    "parcelado" => 8,   "prazo" => 1),
+        array("elo" => "prata",      "value" => 48,    "parcelado" => 12,  "prazo" => 1),
+        array("elo" => "ouro",       "value" => 60,    "parcelado" => 15,  "prazo" => 1),
+        array("elo" => "platina",    "value" => 80,    "parcelado" => 20,  "prazo" => 1),
+        array("elo" => "diamante",   "value" => 200,   "parcelado" => 50,  "prazo" => 2),
+        array("elo" => "mestre",     "value" => 160,   "parcelado" => 0,   "prazo" => 4),
+        array("elo" => "grao-mestre", "value" => 900,   "parcelado" => 0,   "prazo" => 7),
+        array("elo" => "desafiante", "value" => 2000,  "parcelado" => 0,   "prazo" => 15)
+    ];
     public const DEFAULT_JOBX_DUOBOOSTER = [
-            array("elo" => "ferro",     "value" => 56,    "parcelado" => 14,  "prazo" => 1),
-            array("elo" => "bronze",    "value" => 64,    "parcelado" => 16,  "prazo" => 1),
-            array("elo" => "prata",     "value" => 96,    "parcelado" => 24,  "prazo" => 1),
-            array("elo" => "ouro",      "value" => 120,   "parcelado" => 30,  "prazo" => 1),
-            array("elo" => "platina",   "value" => 160,   "parcelado" => 40,  "prazo" => 1),
-            array("elo" => "diamante",  "value" => 400,   "parcelado" => 100, "prazo" => 2)
+        array("elo" => "ferro",     "value" => 56,    "parcelado" => 14,  "prazo" => 1),
+        array("elo" => "bronze",    "value" => 64,    "parcelado" => 16,  "prazo" => 1),
+        array("elo" => "prata",     "value" => 96,    "parcelado" => 24,  "prazo" => 1),
+        array("elo" => "ouro",      "value" => 120,   "parcelado" => 30,  "prazo" => 1),
+        array("elo" => "platina",   "value" => 160,   "parcelado" => 40,  "prazo" => 1),
+        array("elo" => "diamante",  "value" => 400,   "parcelado" => 100, "prazo" => 2)
     ];
 
     public function convertETN($a): int
     {
-        switch ($a)
-        {
+        switch ($a) {
             case 'ferro':
                 return 0;
             case 'bronze':
@@ -54,8 +54,7 @@ class Essential
 
     public function convertETN2($a): int
     {
-        switch ($a)
-        {
+        switch ($a) {
             case 'ferro':
                 return 0;
             case 'bronze':
@@ -75,24 +74,25 @@ class Essential
 
     public function correctDIV($a, $b, $c, $d): bool
     {
-    return $d > Essential::DIVISIONS_THEAMOUNT || $d == 0 || $c == 0 || $a == $b && ($c >= $d) ? true: false;
+        return $d > Essential::DIVISIONS_THEAMOUNT || $d == 0 || $c == 0 || $a == $b && ($c >= $d) ? true : false;
     }
 
     public function correctMFL($a)
     {
-            switch($a){
-                case 1:
+        switch ($a) {
+            case 1:
                 return 4;
-                case 2:
+            case 2:
                 return 3;
-                case 3:
+            case 3:
                 return 2;
-                case 4:
+            case 4:
                 return 1;
-            }
+        }
     }
 
-    public function convertRTN($roman){
+    public function convertRTN($roman)
+    {
         $romans = array(
             'M' => 1000,
             'CM' => 900,
@@ -116,17 +116,17 @@ class Essential
             }
         }
         return $result;
-      }
+    }
 
-      public function multiplyEnd($x,$y){
+    public function multiplyEnd($x, $y)
+    {
         $z = 1;
-          for($x > $y; $x--;){
-            if($x == $y){
-              break;
+        for ($x > $y; $x--;) {
+            if ($x == $y) {
+                break;
             }
             $z++;
-          }
-          return $z;
-      }
+        }
+        return $z;
+    }
 }
-

@@ -5,9 +5,10 @@ namespace JOBXCalculator\JOBXCalculator;
 
 class MyException extends \Exception
 {
-   
-    public function __construct($code = 99) {
-       $this->code = $code;
+
+    public function __construct($code = 99)
+    {
+        $this->code = $code;
     }
 
     protected function errorDetails($error)
@@ -21,8 +22,9 @@ class MyException extends \Exception
         return array_search($error, array_column($Details, 'Code', "Mensagem"));
     }
 
-  
-    public function errorJOBX() {
+
+    public function errorJOBX()
+    {
         return array("Code" => $this->code, "Mensagem" => $this->errorDetails($this->code));
     }
 }
